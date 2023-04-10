@@ -1,8 +1,7 @@
 FROM maven:3.63-openjdk-8 as builder
 WORKDIR /tmp/workspace
-COPY src/main/resources /tmp/workspace
-RUN mvn clean package\
-    echo "打包完成"
+COPY ./ /tmp/workspace
+RUN mvn clean package
 
 
 
