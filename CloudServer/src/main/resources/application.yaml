@@ -1,5 +1,9 @@
 server:
   port: 6670
+
+spring:
+  application:
+    CloudDemo
 eureka:
   instance:
     hostname: localhost #eureka服务端的实例名称，
