@@ -6,6 +6,6 @@ CMD mvn clean package
 
 FROM openjdk:8
 WORKDIR /workspace
-COPY /tmp/workspace/target/redis-server.jar /workspacr/redis-server.jar
+COPY --from=builder /tmp/workspace/target/redis-server.jar /workspacr/redis-server.jar
 CMD java -jar /workspace/redis-server.jar
 EXPOSE 6671
