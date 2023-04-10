@@ -6,6 +6,6 @@ CMD mvn clean package
 
 FROM openjdk:8-jre
 WORKDIR /workspace
-COPY --from=builder /tmp/workspace/target/cloud-server.jar /workspacr/cloud-server.jar
+ADD cloud-server.jar cloud-server.jar
 CMD java -jar /workspace/cloud-server.jar
 EXPOSE 6670
