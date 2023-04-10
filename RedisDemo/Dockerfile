@@ -1,7 +1,8 @@
 FROM maven:3.63-openjdk-8 as builder
 WORKDIR /tmp/workspace
 COPY src/main/resources /tmp/workspace
-RUN --mount=type=cache.target=/root/.m2 mvn clean package
+RUN mvn clean package\
+    echo "打包完成"
 
 
 
