@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    CloudDemo
+    eureka-server
 eureka:
   instance:
     hostname: localhost #eureka服务端的实例名称，

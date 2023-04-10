@@ -1,7 +1,11 @@
-FROM openjdk:8
-VOLUME /tmp
-ADD redis-server.jar app.jar
-RUN bash -c 'touch /app.jar'
+FROM maven:3.63-openjdk-8 as builder
+WORKDIR /tmp/workspace
+COPY ./ /tmp/workspace
+RUN --mount=type=cache.target=/root/.m2 mvn clean package
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+
+FROM openjdk:8
+WORKDIR /workspace
+COPY --from=builder /tmp/workspace/target/redis-server.jar /workspacr/redis-server.jar
+CMD java -jar /workspace/redis-server.jar
 EXPOSE 6671
