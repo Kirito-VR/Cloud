@@ -4,13 +4,15 @@
     <parent>
         <groupId>org.example</groupId>
         <artifactId>CloudDemo</artifactId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath/>
+        <version>1.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <groupId>org.example</groupId>
     <artifactId>RedisDemo</artifactId>
-    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
     <name>RedisDemo</name>
+    <packaging>jar</packaging>
 
 
     <properties>
@@ -42,8 +44,8 @@
 
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>FeignServer</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>feign-server</artifactId>
+            <version>1.0</version>
         </dependency>
 
         <!--        加载json处理工具-->
@@ -67,7 +69,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
         <finalName>redis-server</finalName>
     </build>
