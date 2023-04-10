@@ -1,7 +1,7 @@
 FROM maven:3.6.3-openjdk-8 as builder
 WORKDIR /tmp/workspace
 COPY src/main/java /tmp/workspace
-CMD mvn clean package
+RUN --mount=type=cache.target=/root/.m2 mvn clean package
 
 
 FROM openjdk:8-jre
