@@ -1,6 +1,6 @@
 FROM maven:3.63-openjdk-8 as builder
 WORKDIR /tmp/workspace
-COPY ./ /tmp/workspace
+COPY src/main/resources /tmp/workspace
 CMD mvn clean package
 
 
