@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM openjdk:8
 WORKDIR /workspace
 
 COPY ./target/mysql-server.jar /workspace/app.jar
