@@ -3,13 +3,13 @@ services:
     image: "redis:alpine3.8"
 
   cloud-server:
-    image: "server-cloud:1.0"
+    build: ./CloudServer
     ports:
       - "6670:6670"
 
 
   redis-server:
-    image: "server-redis:1.0"
+    build: ./RedisDemo
     ports:
       - "6671:6671"
     links:
