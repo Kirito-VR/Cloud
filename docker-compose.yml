@@ -1,0 +1,17 @@
+services:
+  redis:
+    image: "redis:alpine"
+
+  cloud-server:
+    build: ./CloudServer
+    ports:
+      - "6670:6670"
+
+
+  redis-server:
+    build: ./RedisDemo
+    ports:
+      - "6671:6671"
+    links:
+      - redis
+
