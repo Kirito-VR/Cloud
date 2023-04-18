@@ -2,6 +2,7 @@ package org.example.mysql.service.impl;
 
 import org.example.mysql.domain.entity.DemoUser;
 import org.example.mysql.domain.model.dto.RegisterDemoUserDTO;
+import org.example.mysql.domain.model.vo.DemoUserVO;
 import org.example.mysql.mapper.DemoUserMapper;
 import org.example.mysql.service.IDemoUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +40,37 @@ public class DemoUserServiceImpl implements IDemoUserService {
                 .orEqualTo("email",user.getEmail());
 
         DemoUser filter_user = userMapper.selectOneByExample(example);
-        System.out.println("查找已注册的手机号或者邮箱："+filter_user);
-
-        return 0;
+        // 判断是否存在该用户
+        if(filter_user!=null){
+            System.out.println("查找已注册的手机号或者邮箱："+filter_user);
+            return 0;
+        }else {
+            // 不存在则插入
+            return userMapper.insert(user);
+        }
     }
+
+    @Override
+    public DemoUserVO getDemoUsrInfo(int id) {
+        DemoUser user = userMapper.selectByPrimaryKey(id);
+
+        DemoUserVO demoUserVO = DemoUserVO.builder()
+                                            .nick_name(user.getNick_name())
+                                            .mobile(user.getMobile())
+                                            .email(user.getEmail())
+                                            .build();
+        return demoUserVO;
+    }
+
+    public int checkRegisterStyle(RegisterDemoUserDTO checkObj){
+        String mobile = checkObj.getMobile();
+        String email = checkObj.getEmail();
+        int flag = 0;
+        if(mobile==null&&email==null){
+            flag = 1;
+        }
+
+        return flag;
+    }
+
 }
