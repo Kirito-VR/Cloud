@@ -6,6 +6,9 @@ spring:
     name: mysql-server
   datasource:
     username: root
-    password: Quectel@2022
-    url: jdbc:mysql://localhost:3306/demo?userUnicode=true&characterEncoding=utf-8
+    password: quectel@2022
+    url: jdbc:mysql://localhost:3306/demo?userUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  typeAliasesPackage: org.example.mysql.domain.entity

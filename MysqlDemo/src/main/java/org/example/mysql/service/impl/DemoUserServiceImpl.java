@@ -5,8 +5,10 @@ import org.example.mysql.domain.model.dto.RegisterDemoUserDTO;
 import org.example.mysql.mapper.DemoUserMapper;
 import org.example.mysql.service.IDemoUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+@Service
 public class DemoUserServiceImpl implements IDemoUserService {
 
     @Autowired

@@ -27,11 +27,6 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <!--        数据库连接工具-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.0</version>
-        </dependency>
 
         <dependency>
             <groupId>tk.mybatis</groupId>
@@ -45,6 +40,20 @@
             <version>8.0.12</version>
         </dependency>
 
+
+<!--        加入测试组件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
