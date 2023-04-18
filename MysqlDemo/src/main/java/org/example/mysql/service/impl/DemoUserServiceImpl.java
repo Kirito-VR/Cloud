@@ -1,5 +1,6 @@
 package org.example.mysql.service.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.example.mysql.domain.entity.DemoUser;
 import org.example.mysql.domain.model.dto.RegisterDemoUserDTO;
 import org.example.mysql.domain.model.vo.DemoUserVO;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 @Service
+@Slf4j
 public class DemoUserServiceImpl implements IDemoUserService {
 
     @Autowired
@@ -52,7 +54,12 @@ public class DemoUserServiceImpl implements IDemoUserService {
 
     @Override
     public DemoUserVO getDemoUsrInfo(int id) {
-        DemoUser user = userMapper.selectByPrimaryKey(id);
+
+        Example example = new Example(DemoUser.class);
+        example.createCriteria().andEqualTo("pk_id",id);
+        DemoUser user = userMapper.selectOneByExample(example);
+        DemoUser user2 = userMapper.selectByPrimaryKey(id);
+        System.out.println(user2);
 
         DemoUserVO demoUserVO = DemoUserVO.builder()
                                             .nick_name(user.getNick_name())

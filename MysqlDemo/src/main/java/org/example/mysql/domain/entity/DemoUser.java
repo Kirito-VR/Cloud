@@ -16,7 +16,7 @@ public class DemoUser {
 
     @Id
     @GeneratedValue(generator = "JDBC")
-    private int pk_id;
+    private Integer pk_id;
     private String nick_name;
     private String mobile;
     private String email;
