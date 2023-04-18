@@ -1,2 +1,11 @@
 server:
   port: 6667
+
+spring:
+  application:
+    name: mysql-server
+  datasource:
+    username: root
+    password: Quectel@2022
+    url: jdbc:mysql://localhost:3306/demo?userUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
