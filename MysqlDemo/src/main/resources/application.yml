@@ -20,5 +20,3 @@ eureka:
   instance:
     instance-id: mysql-server #自定义服务名称信息
     prefer-ip-address: true  #显示访问路径的 ip 地址
-
-logging:

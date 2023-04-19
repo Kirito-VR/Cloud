@@ -23,7 +23,7 @@ public class MongoUtil {
     private static int PORT;
     static{
         client = new MongoClient("127.0.0.1",27017);
-        mongoDatabase = client.getDatabase("collect1");
+        mongoDatabase = client.getDatabase("demo");
     }
 
     public static MongoCollection<Document> getCollection(String collectName){
@@ -48,6 +48,8 @@ public class MongoUtil {
 
     }
 
+
+    // 通过Map进行构建Document
     public static Document transMap2Document(HashMap map){
         Document document = new Document();
 
