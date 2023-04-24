@@ -1,12 +1,17 @@
 services:
   db:
-    image: "mysql:8.0.26"
+    build:
+      ./data
     ports:
-      - 3306:3306
-      -
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: cloud_demo
+
 
   redis:
     image: "redis:alpine3.8"
+    ports:
+      - 6379:6379
 
   cloud-server:
     build: ./CloudServer
@@ -17,6 +22,9 @@ services:
     build: ./RedisDemo
     ports:
       - "6671:6671"
+    environment:
+      EUREKA_ADDR: cloud-server
+      EUREKA_PORT: 6379
     depends_on:
       - redis
       - cloud-server
@@ -26,6 +34,11 @@ services:
     ports:
       - 6669:6669
     environment:
-      -
+      EUREKA_ADDR: cloud-server
+      EUREKA_PORT: 6379
+      MYSQL_ADDR: db
+      MYSQL_PORT: 3307
+      MYSQL_PASSWORD: cloud_demo
     depends_on:
       - cloud-server
+      - db

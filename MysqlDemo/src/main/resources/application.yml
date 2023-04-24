@@ -6,9 +6,10 @@ spring:
     name: mysql-server
   datasource:
     username: root
-    password: quectel@2022
-    url: jdbc:mysql://localhost:3306/demo?userUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    password: ${MYSQL_PASSWORD:cloud_demo}
+    url: jdbc:mysql://${MYSQL_ADDR:localhost}:${MYSQL_PORT:3306}/demo?userUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true
     driver-class-name: com.mysql.cj.jdbc.Driver
+
 
 mybatis:
   typeAliasesPackage: org.example.mysql.domain.entity
@@ -16,7 +17,7 @@ mybatis:
 eureka:
   client: #将客户端注册到 eureka 服务列表内
     service-url:
-      defaultZone: http://${eureka:localhost}/eureka/  #这个地址是 7001注册中心在 application.yml 中暴露出来额注册地址 （单机版）
+      defaultZone: http://${EUREKA_ADDR:localhost}:${EUREKA_PORT:6670}/eureka/  #这个地址是 7001注册中心在 application.yml 中暴露出来额注册地址 （单机版）
 #      defaultZone: http://localhost:6670/eureka/  #这个地址是 7001注册中心在 application.yml 中暴露出来额注册地址 （单机版）
   instance:
     instance-id: mysql-server #自定义服务名称信息
