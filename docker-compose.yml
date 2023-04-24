@@ -1,4 +1,10 @@
 services:
+  db:
+    image: "mysql:8.0.26"
+    ports:
+      - 3306:3306
+      -
+
   redis:
     image: "redis:alpine3.8"
 
@@ -7,11 +13,19 @@ services:
     ports:
       - "6670:6670"
 
-
   redis-server:
     build: ./RedisDemo
     ports:
       - "6671:6671"
-    links:
+    depends_on:
       - redis
+      - cloud-server
 
+  mysql-server:
+    build: ./MysqlDemo/
+    ports:
+      - 6669:6669
+    environment:
+      -
+    depends_on:
+      - cloud-server

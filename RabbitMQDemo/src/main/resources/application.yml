@@ -4,8 +4,16 @@ spring:
   applicaiton:
     name: RabbitMQDemo
   rabbitmq:
-    host: 127.0.0.1
+    host: 192.168.25.192
     port: 5672
-    username: name
-    password: 123456
-    virtualHost: /
+    username: aep-dev
+    password: Quectel@2021
+    virtual-host: aep-dev-vhost
+    queue: kiritQueue
+    listener:
+      simple:
+        acknowledge-mode: manual
+        retry:
+          enabled: true
+          max-attempts: 5
+          initial-interval: 3000
