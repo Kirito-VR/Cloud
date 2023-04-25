@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RabbitMQReceiver {
 
-    @RabbitListener(queues = "${spring.rabbitmq.queue}")
+    @RabbitListener(queues = "kiritQueue")
     public void receive(Message message){
         System.out.println("Received Message:" + message.getText());
     }

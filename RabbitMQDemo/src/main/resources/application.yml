@@ -10,10 +10,11 @@ spring:
     password: Quectel@2021
     virtual-host: aep-dev-vhost
     queue: kiritQueue
+    exchange: my_exchange
     listener:
       simple:
         acknowledge-mode: manual
         retry:
-          enabled: true
+          enabled: false
           max-attempts: 5
           initial-interval: 3000
