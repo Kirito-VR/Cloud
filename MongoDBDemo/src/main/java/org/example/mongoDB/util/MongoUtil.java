@@ -1,7 +1,8 @@
 package org.example.mongoDB.util;
 
-import com.mongodb.MongoClient;
+
 import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -22,7 +23,6 @@ public class MongoUtil {
     @Value(value = "${spring.mongodb.port}")
     private static int PORT;
     static{
-        client = new MongoClient("127.0.0.1",27017);
         mongoDatabase = client.getDatabase("demo");
     }
 

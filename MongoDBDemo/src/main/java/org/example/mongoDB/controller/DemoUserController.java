@@ -21,4 +21,11 @@ public class DemoUserController {
         demoUserMongoService.getResult(id);
         return 1;
     }
+
+    @GetMapping("/get2insert")
+    public int get2Insert(@RequestParam("id")int id){
+        demoUserMongoService.insertResult(id);
+        return 1;
+    }
+
 }

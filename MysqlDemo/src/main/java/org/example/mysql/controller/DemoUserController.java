@@ -14,8 +14,9 @@ public class DemoUserController {
     private IDemoUserService demoUserService;
 
     @PostMapping("/register")
-    public void registerDemoUser(@RequestBody RegisterDemoUserDTO demoUserDTO){
+    public String registerDemoUser(@RequestBody RegisterDemoUserDTO demoUserDTO){
         demoUserService.registerDemoUser(demoUserDTO);
+        return "200";
     }
 
     @GetMapping("/user-info")
