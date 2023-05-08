@@ -4,10 +4,10 @@ spring:
   applicaiton:
     name: RabbitMQDemo
   rabbitmq:
-    host: 192.168.25.192
+    host: localhost
     port: 5672
     username: aep-dev
-    password: Quectel@2021
+    password: nonono
     virtual-host: aep-dev-vhost
     queue: kiritQueue
     exchange: my_exchange
